@@ -1,28 +1,24 @@
-#Create Security Group
+
+resource "aws_vpc" "vpcsouth01" {
+  cidr_block = var.vpc_cidr
+  tags = {
+    Name = "vpcsouth01"
+  }
+}
+
+resource "aws_subnet" "snetsouth01" {
+  vpc_id            = aws_vpc.vpcsouth01.id
+  cidr_block        = var.subnet_cidr
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "snetsouth01"
+  }
+}
+
 resource "aws_security_group" "sgsouth01" {
-  name        = var.security_groups_name
-  description = "Security group with specified ports"
-
-  ingress {
-    from_port   = 25
-    to_port     = 25
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  vpc_id = aws_vpc.vpcsouth01.id
+  description = "Allow SSH and all traffic"
+  name = "sgsouth01"
 
   ingress {
     from_port   = 22
@@ -31,33 +27,14 @@ resource "aws_security_group" "sgsouth01" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 465
-    to_port     = 465
-    protocol    = "tcp"
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 6443
-    to_port     = 6443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 3000
-    to_port     = 10000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 30000
-    to_port     = 32767
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  tags = {
+    Name = "sgsouth01"
   }
 }
-
-
