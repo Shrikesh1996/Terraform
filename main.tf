@@ -7,6 +7,9 @@ resource "aws_instance" "master" {
   user_data = file("/master.sh")
   key_name               = "MyKey"            
   security_groups        = [aws_security_group.sgsouth01.id]
+  root_block_device {
+    volume_size = 30
+  }
 
   tags = {
     Name = var.master
@@ -22,6 +25,9 @@ resource "aws_instance" "slave1" {
   user_data = file("/slave.sh")
   key_name               = "MyKey"            
   security_groups        = [aws_security_group.sgsouth01.id]
+  root_block_device {
+    volume_size = 30
+  }
 
   tags = {
     Name = var.slave1
@@ -37,6 +43,9 @@ resource "aws_instance" "slave2" {
   user_data = file("/slave.sh")
   key_name               = "MyKey"            
   security_groups        = [aws_security_group.sgsouth01.id]
+  root_block_device {
+    volume_size = 30
+  }
 
   tags = {
     Name = var.slave2

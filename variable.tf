@@ -22,7 +22,7 @@ variable "routetablename" {
 
 variable "security_group_name" {
   description = "Provide SG name"
-  default = "scsouth01"
+  default = "sgsouth01"
 }
 
 variable "master" {

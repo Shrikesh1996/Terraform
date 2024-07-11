@@ -52,6 +52,7 @@ resource "aws_route_table_association" "rtasouth01" {
 # Create a security group
 resource "aws_security_group" "sgsouth01" {
   vpc_id = aws_vpc.vpcsouth01.id
+  name = var.security_group_name
 
 ingress {
     from_port   = 25
