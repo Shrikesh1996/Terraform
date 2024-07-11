@@ -4,7 +4,7 @@
 resource "aws_instance" "instance1" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.sgsouth01.name]
+  #security_groups = [aws_security_group.sgsouth01.name]
   key_name = "MyKey"
   user_data = file("/master.sh")
   root_block_device {
@@ -20,7 +20,7 @@ resource "aws_instance" "instance1" {
 resource "aws_instance" "instance2" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.sgsouth01.name]
+  #security_groups = [aws_security_group.sgsouth01.name]
   key_name = "MyKey"
   user_data = file("/slave.sh")
   root_block_device {
@@ -36,7 +36,7 @@ resource "aws_instance" "instance2" {
 resource "aws_instance" "instance3" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.sgsouth01.name]
+  #security_groups = [aws_security_group.sgsouth01.name]
   key_name = "MyKey"
   user_data = file("/slave.sh")
    root_block_device {
