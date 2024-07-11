@@ -3,17 +3,17 @@ output "vpc_id" {
 }
 
 output "subnet_id" {
-  value = aws_subnet.subnet.id
+  value = aws_subnet.snetsouth01.id
+}
+
+output "internet_gateway_id" {
+  value = aws_internet_gateway.igsouth01.id
+}
+
+output "route_table_id" {
+  value = aws_route_table.rtsouth01.id
 }
 
 output "security_group_id" {
   value = aws_security_group.sgsouth01.id
-}
-
-output "ec2_instance_ids" {
-  value = aws_instance.ec2_instances.*.id
-}
-
-output "ec2_instance_public_ips" {
-  value = aws_instance.ec2_instances.*.public_ip
 }

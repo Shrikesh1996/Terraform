@@ -1,29 +1,38 @@
-variable "aws_region" {
-  description = "The AWS region to deploy resources."
-  default     = "ap-south-1"  # Adjust as needed
+variable "ami_id" {
+  description = "AMI id for instance"
+  default = "ami-0ad21ae1d0696ad58"
 }
 
-variable "vpc_cidr" {
-  description = "The CIDR block for the VPC."
-  default     = "10.0.0.0/16"
+variable "vpc_name" {
+  description = "Name of VPC"
+  default = "vpcsouth01"
 }
 
-variable "subnet_cidr" {
-  description = "The CIDR block for the subnet."
-  default     = "10.0.1.0/24"
+variable "subnet_name" {
+  default = "snetsouth01"
 }
 
-variable "instance_type" {
-  description = "The type of EC2 instance to deploy."
-  default     = "t2.medium"  # Adjust as needed
+variable "igname" {
+  default = "igsouth01"
 }
 
-variable "key_name" {
-  description = "The name of the key pair to use for EC2 instances."
-  default     = "MyKey"
+variable "routetablename" {
+  default = "rtsouth01"
 }
 
-variable "ec2_names" {
-  description = "List of EC2 instance names."
-  default     = ["slave1", "slave2", "master"]
+variable "security_group_name" {
+  description = "Provide SG name"
+  default = "scsouth01"
+}
+
+variable "master" {
+  default = "Master"
+}
+
+variable "slave1" {
+  default = "Slave1"
+}
+
+variable "slave2" {
+  default = "Slave2"
 }
