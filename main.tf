@@ -56,3 +56,57 @@ resource "aws_instance" "slave2" {
 }
 
 
+# Create sonar EC2 instance
+resource "aws_instance" "sonar" {
+  ami                    = var.ami_id  
+  instance_type          = "t2.medium"              
+  subnet_id              = aws_subnet.snetsouth01.id
+  associate_public_ip_address = true              
+  key_name               = "MyKey"            
+  security_groups        = [aws_security_group.sgsouth01.id]
+  private_ip = "10.0.1.203"
+  root_block_device {
+    volume_size = 20
+  }
+
+  tags = {
+    Name = var.sonar
+  }
+}
+
+
+# Create nexus EC2 instance
+resource "aws_instance" "nexus" {
+  ami                    = var.ami_id  
+  instance_type          = "t2.medium"              
+  subnet_id              = aws_subnet.snetsouth01.id
+  associate_public_ip_address = true              
+  key_name               = "MyKey"            
+  security_groups        = [aws_security_group.sgsouth01.id]
+  private_ip = "10.0.1.204"
+  root_block_device {
+    volume_size = 20
+  }
+
+  tags = {
+    Name = var.nexus
+  }
+}
+
+# Create Jenkins EC2 instance
+resource "aws_instance" "jenkins" {
+  ami                    = var.ami_id  
+  instance_type          = "t2.medium"              
+  subnet_id              = aws_subnet.snetsouth01.id
+  associate_public_ip_address = true              
+  key_name               = "MyKey"            
+  security_groups        = [aws_security_group.sgsouth01.id]
+  private_ip = "10.0.1.205"
+  root_block_device {
+    volume_size = 20
+  }
+
+  tags = {
+    Name = var.jenkins
+  }
+}
