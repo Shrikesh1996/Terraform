@@ -33,18 +33,6 @@ variable "slave1" {
   default = "Slave1"
 }
 
-variable "slave2" {
-  default = "Slave2"
-}
-
-variable "sonar" {
-  default = "SonarQube"
-}
-
-variable "nexus" {
-  default = "Nexus"
-}
-
 variable "jenkins" {
   default = "Jenkins"
 }
