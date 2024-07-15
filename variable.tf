@@ -22,13 +22,13 @@ variable "instance1_name" {
 variable "instance2_name" {
   description = "Slave-1"
   type        = string
-  default     = "Slave-1"
+  default     = "Worker"
 }
 
 variable "instance3_name" {
   description = "Slave-2"
   type        = string
-  default     = "Slave-2"
+  default     = "Jenkins-Server"
 }
 
 variable "security_groups_name" {
