@@ -3,6 +3,11 @@ variable "ami_id" {
   default = "ami-0ad21ae1d0696ad58"
 }
 
+variable "type" {
+  description = "Gives type of instance"
+  default = "t2.micro"
+}
+
 variable "vpc_name" {
   description = "Name of VPC"
   default = "vpcsouth01"
@@ -35,4 +40,12 @@ variable "slave1" {
 
 variable "jenkins" {
   default = "Jenkins"
+}
+
+variable "nexus" {
+  default = "Nexus-Server"
+}
+
+variable "sonar" {
+  default = "Sonar-Server"
 }
