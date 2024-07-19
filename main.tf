@@ -20,7 +20,7 @@ resource "aws_instance" "master" {
 # Create Slave2\1 EC2 instance
 resource "aws_instance" "slave1" {
   ami                    = var.ami_id  
-  instance_type          = var.type               
+  instance_type          = "t2.medium"              
   subnet_id              = aws_subnet.snetsouth01.id
   associate_public_ip_address = true              
   user_data = file("/slave.sh")
@@ -39,7 +39,7 @@ resource "aws_instance" "slave1" {
 # Create Jenkins EC2 instance
 resource "aws_instance" "Jenkins" {
   ami                    = var.ami_id  
-  instance_type          = var.type               
+  instance_type          = "t2.medium"              
   subnet_id              = aws_subnet.snetsouth01.id
   associate_public_ip_address = true              
   user_data = file("/jenkins.sh")
@@ -58,7 +58,7 @@ resource "aws_instance" "Jenkins" {
 # Create Nexus EC2 instance
 resource "aws_instance" "nexus" {
   ami                    = var.ami_id  
-  instance_type          = var.type               
+  instance_type          = "t2.medium"              
   subnet_id              = aws_subnet.snetsouth01.id
   associate_public_ip_address = true              
   user_data = file("/nexus.sh")
@@ -77,7 +77,7 @@ resource "aws_instance" "nexus" {
 # Create Sonar EC2 instance
 resource "aws_instance" "sonar" {
   ami                    = var.ami_id  
-  instance_type          = var.type               
+  instance_type          = "t2.medium"              
   subnet_id              = aws_subnet.snetsouth01.id
   associate_public_ip_address = true              
   user_data = file("/sonar.sh")
